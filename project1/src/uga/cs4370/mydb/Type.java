@@ -1,5 +1,13 @@
 package uga.cs4370.mydb;
 
+
+
+/**
+ *  COMPLETED CLASS & CODE!!
+ */
+
+ 
+
 /**
  * Representation of the possible types.
  */
