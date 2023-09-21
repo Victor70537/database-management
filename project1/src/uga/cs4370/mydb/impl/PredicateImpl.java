@@ -8,7 +8,13 @@ public class PredicateImpl implements Predicate {
 
     @Override
     public boolean check(List<Cell> row) {
-        // For now, we'll just return false
-        return false;
+        // Done
+
+        if (row.size() > 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }
