@@ -18,3 +18,5 @@ public class PredicateImpl implements Predicate {
         }
     }
 }
+
+// Test
