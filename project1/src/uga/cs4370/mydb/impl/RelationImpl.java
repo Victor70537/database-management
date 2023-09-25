@@ -13,7 +13,12 @@ public class RelationImpl implements Relation {
     private List<Type> types;
     private List<String> attrs;
 
-    // Initialize attributes here, if needed
+    public RelationImpl(String name, List<String> attrs, List<Type> types) {
+        this.name = name;
+        this.attrs = new ArrayList<>(attrs);
+        this.types = new ArrayList<>(types);
+        this.rows = new ArrayList<>();
+    }    
 
     @Override
     public String getName() {
@@ -85,51 +90,47 @@ public class RelationImpl implements Relation {
 
     @Override
     public void insert(Cell... cells) {
-        // Done
-
-        // Checks if the number of provided cells matches the number of attributes
+        // Check if the number of provided cells matches the number of attributes
         if (cells.length != attrs.size()) {
             throw new IllegalArgumentException("Number of cells does not match the number of attributes.");
         }
+    
         List<Cell> newRow = new ArrayList<>(); // iterates through the cells and add them to the new row
         for (int i = 0; i < cells.length; i++) {
-
-            // Needs to be implemented later (Check for types)
-            // saur this check if the cell type matches the attribute type yuh
-            // if (cells[i].getTypes() != types.get(i)) {
-            //     throw new IllegalArgumentException("Cell type does not match the attribute type.");
-            // }
+            // Check if the cell type matches the attribute type
+            if (cells[i].getType() != types.get(i)) {
+                throw new IllegalArgumentException("Cell type does not match the attribute type at index: " + i);
+            }
             newRow.add(cells[i]);
         }
+    
         // Add the new row
         rows.add(newRow);
-        
-    }
+    }    
 
-    // @Override
-    // public void insert(List<Cell> cells) {
-    //     // Make this method.
-
-    // }
-
-    @Override 
-    public void insert(List<Cell> cells) { // it basically has the same function as the previous insert method, inputing data is just diff
+    @Override
+    public void insert(List<Cell> cells) {
+        // Check if the number of provided cells matches the number of attributes
         if (cells.size() != attrs.size()) {
             throw new IllegalArgumentException("Number of cells does not match the number of attributes.");
         }
+    
         List<Cell> newRow = new ArrayList<>();
         for (int i = 0; i < cells.size(); i++) {
             Cell cell = cells.get(i);
-
-            // Needs to be implemented later (Check for types)
-            // if (cell.getType() != types.get(i)) {
-            //     throw new IllegalArgumentException("Cell type does not match the attribute type.");
-            // }
+    
+            // Check if the cell type matches the attribute type
+            if (cell.getType() != types.get(i)) {
+                throw new IllegalArgumentException("Cell type does not match the attribute type at index: " + i);
+            }
+    
             newRow.add(cell);
         }
+    
+        // Add the new row
         rows.add(newRow);
     }
-
+    
     @Override
     public void print() {
         // Done

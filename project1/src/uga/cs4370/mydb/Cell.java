@@ -40,6 +40,13 @@ public class Cell {
         this.type = Type.STRING;
     }
 
+     /*
+     * Get the cell type.
+     */
+    public Type getType() {
+        return this.type;
+    }
+
     /**
      * Returns the cell value as an integer.
      */
