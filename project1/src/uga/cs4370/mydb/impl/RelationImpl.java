@@ -18,8 +18,16 @@ public class RelationImpl implements Relation {
         this.attrs = new ArrayList<>(attrs);
         this.types = new ArrayList<>(types);
         this.rows = new ArrayList<>();
-    }    
+    }
 
+    public RelationImpl(String name, List<String> attributes, List<Type> types, List<List<Cell>> rows) {
+    this.name = name;
+    this.attrs = attributes;
+    this.types = types;
+    this.rows = rows;
+
+    }
+    
     @Override
     public String getName() {
         // Done
@@ -94,19 +102,20 @@ public class RelationImpl implements Relation {
         if (cells.length != attrs.size()) {
             throw new IllegalArgumentException("Number of cells does not match the number of attributes.");
         }
-    
-        List<Cell> newRow = new ArrayList<>(); // iterates through the cells and add them to the new row
+
+        List<Cell> newRow = new ArrayList<>();
         for (int i = 0; i < cells.length; i++) {
             // Check if the cell type matches the attribute type
-            if (cells[i].getType() != types.get(i)) {
+            if (getCellType(cells[i]) != types.get(i)) {
                 throw new IllegalArgumentException("Cell type does not match the attribute type at index: " + i);
             }
             newRow.add(cells[i]);
         }
-    
+
         // Add the new row
         rows.add(newRow);
-    }    
+    }
+ 
 
     @Override
     public void insert(List<Cell> cells) {
@@ -114,33 +123,81 @@ public class RelationImpl implements Relation {
         if (cells.size() != attrs.size()) {
             throw new IllegalArgumentException("Number of cells does not match the number of attributes.");
         }
-    
+
         List<Cell> newRow = new ArrayList<>();
         for (int i = 0; i < cells.size(); i++) {
             Cell cell = cells.get(i);
-    
+
             // Check if the cell type matches the attribute type
-            if (cell.getType() != types.get(i)) {
+            if (getCellType(cell) != types.get(i)) {
                 throw new IllegalArgumentException("Cell type does not match the attribute type at index: " + i);
             }
-    
+
             newRow.add(cell);
         }
-    
+
         // Add the new row
         rows.add(newRow);
     }
-    
+
+    /*
+     * This is super inefficient; not sure why we can't have a getType() method in Cell.java.
+    */
+    private Type getCellType(Cell cell) {
+    try {
+        cell.getAsInt();
+        return Type.INTEGER;
+    } catch (RuntimeException e) {
+        // Ignore the exception
+    }
+
+    try {
+        cell.getAsString();
+        return Type.STRING;
+    } catch (RuntimeException e) {
+        // Ignore the exception
+    }
+
+    try {
+        cell.getAsDouble();
+        return Type.DOUBLE;
+    } catch (RuntimeException e) {
+        // This should never happen unless there's a new type added to Cell
+        throw new IllegalStateException("Unknown cell type");
+        
+    }
+}
+
     @Override
     public void print() {
-        // Done
-        
+        if (rows.isEmpty()) {
+            return;
+        }
+
+        // I decided to make this uber complicated so it would look pretty in the terminal.
+
+        // Step 1: Figure out the max width for each column
+        List<Integer> maxWidths = new ArrayList<>();
+        for (int j = 0; j < rows.get(0).size(); j++) {
+            int maxColumnWidth = 0;
+            for (int i = 0; i < rows.size(); i++) {
+                int cellWidth = rows.get(i).get(j).toString().length();
+                if (cellWidth > maxColumnWidth) {
+                    maxColumnWidth = cellWidth;
+                }
+            }
+            maxWidths.add(maxColumnWidth);
+        }
+
+        // Step 2: Use that maximum to figure out the space needed w/ String.format()
         for (int i = 0; i < rows.size(); i++) {
             for (int j = 0; j < rows.get(0).size(); j++) {
-                System.out.print(rows.get(i).get(j).toString());
-                System.out.print(" | ");
+                String formattedValue = String.format("%-" + (maxWidths.get(j) + 2) + "s", rows.get(i).get(j)); // +2 for extra padding
+                System.out.print(formattedValue);
+                System.out.print("| ");
             }
-            System.out.println("");
+            System.out.println();
         }
     }
+
 }

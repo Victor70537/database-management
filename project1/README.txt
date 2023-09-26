@@ -1,4 +1,4 @@
-Project completed by Alex F., Victor Q., Althea P., and Sanjay D.K.
+Project 1 completed by Alex Fritz, Victor Qiu, Althea Pamintawan, and Sanjay DK
 
 
 To compile, execute the following command from this directory:
