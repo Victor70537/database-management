@@ -1,25 +1,33 @@
 package edu.uga.cs4370;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+// import javax.persistence.Entity;
+// import javax.persistence.Id;
+// import javax.persistence.Table;
 
-import javax.persistence.ManyToOne;
+// import javax.persistence.ManyToOne;
 
-@Entity
-@Table (name = "Review")
+// @Entity
+// @Table (name = "Review")
 public class Review {
 
-    @Id
-    private Integer reviewID;
+    // @Id
+    private int reviewID;
 
-    @ManyToOne
-    private Movie movie;
+    // @ManyToOne
+    private int movieID;
 
-    @ManyToOne
-    private User user;
+    // @ManyToOne
+    private int userID;
 
-    private Double rating;
+    // Rating
+    private int rating;
+
+    public Review (int reviewID, int movieID, int userID, int rating) {
+        this.reviewID = reviewID;
+        this.movieID = movieID;
+        this.userID = userID;
+        this.rating = rating;
+    }
 
 
 }

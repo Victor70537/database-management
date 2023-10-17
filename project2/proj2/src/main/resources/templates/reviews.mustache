@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Reviews</title>
+</head>
+    <body>
+        <h2>Reviews</h2>
+
+        <table>
+            <tr>
+                <th>reviewID</th>
+                <th>movieID</th>
+                <th>userID</th>
+                <th>rating</th>
+            </tr>
+            {{#review}}
+                <tr>
+                    <td>{{reviewID}}</td>
+                    <td>{{movieID}}</td>
+                    <td>{{userID}}</td>
+                    <td>{{rating}}</td>
+                </tr>
+            {{/review}}
+        </table>
+    </body>
+</html>

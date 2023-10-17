@@ -22,10 +22,10 @@ CREATE TABLE Review (
     ReviewID INT PRIMARY KEY,
     MovieID INT,
     UserID INT,
-    Rating DECIMAL(3, 1) NOT NULL,
+    Rating INT NOT NULL,
     -- Add other review attributes as needed
     FOREIGN KEY (MovieID) REFERENCES Movie(MovieID),
-    FOREIGN KEY (UserID) REFERENCES `User`(UserID)
+    FOREIGN KEY (UserID) REFERENCES User(UserID)
 );
 
 -- Create the Genre table
@@ -58,3 +58,15 @@ INSERT INTO MovieGenre (MovieID, GenreID) VALUES (1,1);
 INSERT INTO MovieGenre (MovieID, GenreID) VALUES (2,2);
 INSERT INTO MovieGenre (MovieID, GenreID) VALUES (3,1);
 INSERT INTO MovieGenre (MovieID, GenreID) VALUES (3,2);
+
+-- Insert data of users to our ER model
+INSERT INTO User VALUES (1, "Alex");
+INSERT INTO User VALUES (2, "Victor");
+INSERT INTO User VALUES (3, "Althea");
+INSERT INTO User VALUES (4, "Sanjay");
+
+-- Insert data of review to our ER model
+INSERT INTO Review VALUES (1, 1, 1, 9);
+INSERT INTO Review VALUES (2, 1, 2, 10);
+INSERT INTO Review VALUES (3, 3, 4, 10);
+

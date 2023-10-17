@@ -5,22 +5,21 @@
     <title>Hello</title>
 </head>
     <body>
-        <h2>Our Message: {{message}}</h2>
-        <p>This is some information.</p>
+        <h2>Movies</h2>
 
         <table>
             <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Year</th>
+                <th>movieID</th>
+                <th>movieTitle</th>
+                <th>movieYear</th>
             </tr>
-            {{#books}}
+            {{#movie}}
                 <tr>
+                    <td>{{ID}}</td>
                     <td>{{title}}</td>
-                    <td>{{author}}</td>
                     <td>{{year}}</td>
                 </tr>
-            {{/books}}
+            {{/movie}}
         </table>
         <form action="/dynamic/submitform" method="POST">
             <input type="text" name="title"/>
