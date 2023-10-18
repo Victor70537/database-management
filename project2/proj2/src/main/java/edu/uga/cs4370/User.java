@@ -16,4 +16,12 @@ public class User {
         this.userID = userID;
         this.username = username;
     }
+
+    public int getID() {
+        return this.userID;
+    }
+
+    public String getName() {
+        return this.username;
+    }
 }

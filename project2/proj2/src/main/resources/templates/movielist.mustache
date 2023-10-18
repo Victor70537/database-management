@@ -2,24 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Reviews</title>
+    <title>Sci-Fi Movies</title>
 </head>
     <body>
-        <h2>Reviews</h2>
+        <h2>Sci-Fi Movies</h2>
 
         <table>
             <tr>
-                <th>movie</th>
-                <th>username</th>
-                <th>rating</th>
+                <th>Movie Titles</th>
+                <th>Genre</th>
             </tr>
-            {{#reviews}}
+            {{#movie}}
                 <tr>
                     <td>{{movieTitle}}</td>
-                    <td>{{users}}</td>
-                    <td>{{rating}}</td>
+                    <td>{{genreTitle}}</td>
                 </tr>
-            {{/reviews}}
+            {{/movie}}
         </table>
         <form method="post" action="/dynamic/back">
             <button type="submit">Home</button>

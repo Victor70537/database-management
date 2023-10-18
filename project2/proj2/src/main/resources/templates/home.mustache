@@ -21,11 +21,15 @@
                 </tr>
             {{/movie}}
         </table>
-        <form action="/dynamic/submitform" method="POST">
-            <input type="text" name="title"/>
-            <input type="text" name="author"/>
-            <input type="text" name="year"/>
-            <input type="submit"/>
+        <!-- Create a form that submits a POST request to the /genre1 endpoint -->
+        <form method="post" action="/dynamic/genre1">
+            <button type="submit">Find Sci-Fi Movies</button>
+        </form>
+        <form method="post" action="/dynamic/genre2">
+            <button type="submit">Find Action Movies</button>
+        </form>
+        <form method="post" action="/dynamic/to-reviews">
+            <button type="submit">See All Reviews</button>
         </form>
     </body>
 </html>

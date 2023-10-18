@@ -9,19 +9,20 @@
 
         <table>
             <tr>
-                <th>reviewID</th>
-                <th>movieID</th>
-                <th>userID</th>
+                <th>movie</th>
+                <th>username</th>
                 <th>rating</th>
             </tr>
-            {{#review}}
+            {{#reviews}}
                 <tr>
-                    <td>{{reviewID}}</td>
-                    <td>{{movieID}}</td>
-                    <td>{{userID}}</td>
+                    <td>{{movieTitle}}</td>
+                    <td>{{users}}</td>
                     <td>{{rating}}</td>
                 </tr>
-            {{/review}}
+            {{/reviews}}
         </table>
+        <form method="post" action="/dynamic/back">
+            <button type="submit">Home</button>
+        </form>
     </body>
 </html>
