@@ -151,7 +151,7 @@ public class WebController {
 
                     System.out.println("Adding stuff to list");
                     String movieTitle = rs.getString("Title");
-                    String genreTitle = "Sci-Fi";
+                    String genreTitle = "Action";
 
                     MovieGivenGenre temp = new MovieGivenGenre(movieTitle, genreTitle);
 
@@ -310,6 +310,13 @@ public class WebController {
     public ModelAndView to_reviews() {
         
         return new ModelAndView("redirect:/dynamic/reviews");
+    }
+
+    @PostMapping("/logout") 
+    @ResponseBody
+    public ModelAndView logout() {
+        
+        return new ModelAndView("redirect:/dynamic/login");
     }
 
     @GetMapping("/login")
