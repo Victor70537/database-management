@@ -19,7 +19,7 @@ CREATE TABLE Movie (
 
 -- Create the Review table with a one-to-many relationship to Movie
 CREATE TABLE Review (
-    ReviewID INT PRIMARY KEY,
+    ReviewID INT PRIMARY KEY AUTO_INCREMENT,
     MovieID INT,
     UserID INT,
     Rating INT NOT NULL,

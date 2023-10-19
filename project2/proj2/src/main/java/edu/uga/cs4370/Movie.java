@@ -26,14 +26,13 @@ public class Movie {
         this.year = year;
     }
     
-    /*
-    public String toString () {
-        return "Movie {" 
-            + "id: " + ID 
-            + ", name: " + title
-            + ", release year: " + year
-            + "}";
+
+    public String getTitle() {
+        return this.title;
     }
-    */
+
+    public int getID() {
+        return this.ID;
+    }
 
 }

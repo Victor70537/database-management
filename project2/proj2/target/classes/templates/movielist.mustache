@@ -3,9 +3,30 @@
 <head>
     <meta charset="utf-8">
     <title>Sci-Fi Movies</title>
+    <style>
+        /* Add styling for the button */
+        .custom-button {
+            background-color: #0074d9; /* Change the background color to your preference */
+            color: #fff; /* Set the text color to white */
+            padding: 10px 10px; /* Adjust the padding for width and height */
+            border: none; /* Remove the border */
+            border-radius: 5px; /* Apply rounded corners */
+            font-size: 16px; /* Adjust the font size */
+            cursor: pointer;
+        }
+
+        .custom-button:hover {
+            background-color: #0056b3; /* Change color on hover */
+        }
+    </style>
 </head>
     <body>
-        <h2>Sci-Fi Movies</h2>
+
+        <h2>{{genreName}}</h2>
+
+        <form method="post" action="/dynamic/back">
+            <button type="submit" class="custom-button">Home</button>
+        </form>
 
         <table>
             <tr>
@@ -19,8 +40,6 @@
                 </tr>
             {{/movie}}
         </table>
-        <form method="post" action="/dynamic/back">
-            <button type="submit">Home</button>
-        </form>
+
     </body>
 </html>

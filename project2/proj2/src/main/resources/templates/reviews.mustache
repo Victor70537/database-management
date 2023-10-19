@@ -3,9 +3,30 @@
 <head>
     <meta charset="utf-8">
     <title>Reviews</title>
+    <style>
+        /* Add styling for the button */
+        .custom-button {
+            background-color: #0074d9; /* Change the background color to your preference */
+            color: #fff; /* Set the text color to white */
+            padding: 10px 20px; /* Adjust the padding for width and height */
+            border: none; /* Remove the border */
+            border-radius: 5px; /* Apply rounded corners */
+            font-size: 16px; /* Adjust the font size */
+            cursor: pointer;
+        }
+
+        .custom-button:hover {
+            background-color: #0056b3; /* Change color on hover */
+        }
+    </style>
 </head>
     <body>
+
         <h2>Reviews</h2>
+
+        <form method="post" action="/dynamic/back">
+            <button type="submit" class="custom-button">Home</button>
+        </form>
 
         <table>
             <tr>
@@ -20,9 +41,21 @@
                     <td>{{rating}}</td>
                 </tr>
             {{/reviews}}
+
+            <body>Review Count: {{count}}</body>
         </table>
-        <form method="post" action="/dynamic/back">
-            <button type="submit">Home</button>
+        <p>Enter the movie title and the rating to add a new review</p>
+        <form action="/dynamic/submitform2" method="POST">
+            <input type="text" name="movieTitle"/>
+            <input type="text" name="rating"/>
+            <input type="submit" value ="Add Review"/>
         </form>
+        <p>Enter the movie title and the rating to delete a review</p>
+        <form action="/dynamic/submitform3" method="POST">
+            <input type="text" name="movieTitle"/>
+            <input type="text" name="rating"/>
+            <input type="submit" value="Delete Review"/>
+        </form>
+
     </body>
 </html>

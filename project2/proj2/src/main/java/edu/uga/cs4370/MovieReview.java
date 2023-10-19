@@ -11,4 +11,16 @@ public class MovieReview {
         this.users = users;
         this.rating = rating;
     }
+
+    public String getMovieTitle () {
+        return this.movieTitle;
+    }
+
+    public String users () {
+        return this.users;
+    }
+
+    public int getRating () {
+        return this.rating;
+    }
 }
