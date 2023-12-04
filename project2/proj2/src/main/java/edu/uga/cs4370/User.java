@@ -1,25 +1,27 @@
 package edu.uga.cs4370;
 
-import java.util.*;
+// import javax.persistence.Entity;
+// import javax.persistence.Table;
+// import javax.persistence.Id;
 
+// @Entity
+// @Table(name = "User")
 public class User {
-    
-    private List<Review> reviews; // many-to-one relationship with review 
 
-    private String name;
-    private int ID;
+    // @Id
+    private int userID;
+    private String username;
 
-    public User(String name, int ID, List<Review> reviews) {
-        this.name = name;
-        this.ID = ID;
-        this.reviews = reviews;
+    public User (int userID, String username) {
+        this.userID = userID;
+        this.username = username;
     }
-    
-    public void addReview (Movie movie, double rating) {
-        Review review = new Review(movie, this, rating);
-    }
-    
-    public void deleteReview (Review review) {
 
+    public int getID() {
+        return this.userID;
+    }
+
+    public String getName() {
+        return this.username;
     }
 }

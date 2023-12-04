@@ -1,19 +1,33 @@
 package edu.uga.cs4370;
 
-import java.util.Dictionary;
+// import javax.persistence.Entity;
+// import javax.persistence.Id;
+// import javax.persistence.Table;
 
+// import javax.persistence.ManyToOne;
+
+// @Entity
+// @Table (name = "Review")
 public class Review {
 
-    private Movie movie; // many-to-one relationship with movie
-    private User user; // relationship with user 
+    // @Id
+    private int reviewID;
 
-    private double rating; // value of the review
+    // @ManyToOne
+    private int movieID;
 
-    public Review (Movie movie, User user, double rating) {
-        this.movie = movie;
-        this.user = user;
+    // @ManyToOne
+    private int userID;
+
+    // Rating
+    private int rating;
+
+    public Review (int reviewID, int movieID, int userID, int rating) {
+        this.reviewID = reviewID;
+        this.movieID = movieID;
+        this.userID = userID;
         this.rating = rating;
-    } 
+    }
 
 
 }

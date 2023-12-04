@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Hello</title>
+    <style>
+        /* Add styling for the button */
+        .custom-button {
+            background-color: #0074d9; /* Change the background color to your preference */
+            color: #fff; /* Set the text color to white */
+            padding: 10px 10px; /* Adjust the padding for width and height */
+            border: none; /* Remove the border */
+            border-radius: 5px; /* Apply rounded corners */
+            font-size: 16px; /* Adjust the font size */
+            cursor: pointer;
+        }
+
+        .custom-button:hover {
+            background-color: #0056b3; /* Change color on hover */
+        }
+    </style>
+</head>
+    <body>
+    
+        <h2>Movies</h2>
+
+        <!-- Create a form that submits a POST request to the /genre1 endpoint -->
+        <form method="post" action="/dynamic/genre1">
+            <button type="submit" class="custom-button">Find Sci-Fi Movies</button>
+        </form>
+        <form method="post" action="/dynamic/genre2">
+            <button type="submit" class="custom-button">Find Action Movies</button>
+        </form>
+        <form method="post" action="/dynamic/to-reviews">
+            <button type="submit" class="custom-button">See All Reviews</button>
+        </form>
+        <form method="post" action="/dynamic/logout">
+            <button type="submit" class="custom-button">Logout</button>
+        </form>
+
+        <table>
+            <tr>
+                <th>movieID</th>
+                <th>movieTitle</th>
+                <th>movieYear</th>
+            </tr>
+            {{#movie}}
+                <tr>
+                    <td>{{ID}}</td>
+                    <td>{{title}}</td>
+                    <td>{{year}}</td>
+                </tr>
+            {{/movie}}
+        </table>
+    </body>
+</html>

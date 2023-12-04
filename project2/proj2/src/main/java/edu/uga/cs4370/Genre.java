@@ -1,18 +1,20 @@
 package edu.uga.cs4370;
 
-import java.util.*;
 
+// import javax.persistence.Entity;
+// import javax.persistence.Id;
+// import javax.persistence.Table;
+
+// @Entity
+// @Table(name = "Genre")
 public class Genre {
     
+    // @Id
     private int ID;
     private String name;
 
-    private List<Movie> movies; // many-to-many relationship with movies
-
-    public Genre (int ID, String name, List<Movie> movies) {
+    public Genre (int ID, String name) {
         this.ID = ID;
         this.name = name;
-        this.movies = movies;
     }
-
 }
