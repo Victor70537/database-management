@@ -9,19 +9,25 @@ package edu.uga.cs4370;
 public class User {
 
     // @Id
-    private int userID;
-    private String username;
+    private int User_ID;
+    private String Location;
+    private String Age;
 
-    public User (int userID, String username) {
-        this.userID = userID;
-        this.username = username;
+    public User (int User_ID, String Location, String Age) {
+        this.User_ID = User_ID;
+        this.Location = Location;
+        this.Age = Age;
     }
 
     public int getID() {
-        return this.userID;
+        return this.User_ID;
     }
 
-    public String getName() {
-        return this.username;
+    public String getLocation() {
+        return this.Location;
+    }
+
+    public String Age() {
+        return this.Age;
     }
 }
