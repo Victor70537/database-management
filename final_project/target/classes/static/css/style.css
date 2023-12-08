@@ -1,0 +1,109 @@
+body {
+    font-family: Arial, sans-serif;
+}
+.header {
+    background-color: #f2f2f2;
+    padding: 20px;
+    text-align: center;
+}
+.nav-bar {
+    overflow: hidden;
+    background-color: #333;
+}
+.nav-bar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.nav-bar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+.search-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.search-container input[type="text"] {
+    padding: 10px 20px;
+    margin-right: -4px;
+    border: 2px solid #ddd;
+    border-right: none;
+    font-size: 18px; /* Larger font size for better visibility */
+    border-top-left-radius: 10px; /* Rounded corners */
+    border-bottom-left-radius: 10px; /* Rounded corners */
+    width: 60%; /* Larger width */
+}
+
+.search-container button {
+    padding: 10px 20px;
+    background: #ddd;
+    border: none;
+    cursor: pointer;
+    border-top-right-radius: 10px; /* Rounded corners */
+    border-bottom-right-radius: 10px; /* Rounded corners */
+}
+
+.search-container button i {
+    font-size: 20px; /* Adjust size of magnifying glass icon */
+    vertical-align: middle; /* Align icon vertically */
+}
+
+/* Style for search results */
+#searchResults {
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+
+
+/* Reset default margins and set box-sizing */
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+/* Apply box-sizing to all elements */
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* Body as flex container */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Content area */
+.content {
+    flex: 1;  /* Make content area take up available space */
+    padding: 10px; /* Adjust as needed */
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.3);
+}
+
+footer p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.response-message {
+    margin-top: 10px;
+    color: red; /* or any appropriate color */
+    font-size: 14px;
+}

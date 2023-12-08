@@ -13,8 +13,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.ui.Model;
 
 import com.mysql.cj.jdbc.Driver;
+import org.springframework.ui.Model;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.sql.Array;
 import java.sql.Connection;
@@ -78,8 +84,14 @@ public class WebController {
                     Book_Title = rs.getString("Books_Title"); // Assuming "Book_Title" is a column in the "Books" table
                     // Retrieve other columns as needed
                     Book_Author = rs.getString("Book_Author"); 
+                    Year_Of_Publication = rs.getInt('Year_Of_Publication');
+                    Publisher = rs.getString('Publisher');
+                    Image_URL_S = rs.getString('Image_URL_S');
+                    Image_URL_M = rs.getString('Image_URL_M');
+                    Image_URL_L = rs.getString('Image_URL_L');
 
-                    Books book = new Books(ISBN, Book_Title, Book_Author);
+                    Books book = new Books(ISBN, Book_Title, Book_Author, Year_Of_Publication, Publisher, 
+                                            Image_URL_S, Image_URL_M, Image_URL_L);
 
                     books.add(book);
                 }
