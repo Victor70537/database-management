@@ -5017,13 +5017,17 @@ INSERT INTO `book_5000` VALUES ('0446533041','Good Grief : A Novel','Lolly Winst
 	('0786890169','Black Water','T. Jefferson Parker',2003,'Hyperion','http://images.amazon.com/images/P/0786890169.01.THUMBZZZ.jpg','http://images.amazon.com/images/P/0786890169.01.MZZZZZZZ.jpg','http://images.amazon.com/images/P/0786890169.01.LZZZZZZZ.jpg');
 
 
-CREATE TABLE IF NOT EXISTS `user_5000` (
-    `User_ID` INT,
+CREATE TABLE IF NOT EXISTS `Users` (
+    `User_ID` INT PRIMARY KEY,
     `Location` VARCHAR(31) CHARACTER SET utf8,
     `Age` VARCHAR(4) CHARACTER SET utf8
 );
 
 CREATE INDEX idx_userid ON Users(User_ID);
+INSERT INTO Users (Username, Password) VALUES ('TestAccount1', 'hashed_password_for_111');
+INSERT INTO Users (Username, Password) VALUES ('TestAccount2', 'hashed_password_for_222');
+INSERT INTO Users (Username, Password) VALUES ('TestAccount3', 'hashed_password_for_333');
+
 
 INSERT INTO `user_5000` VALUES (1,'nyc','NULL'),
 	(2,'stockton','18'),

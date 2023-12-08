@@ -1,0 +1,18 @@
+To run the project, simply press F5 on src > main > java > edu > uga > cs4370 > App.java
+
+Files & Directories:
+
+* Docker directory contains ddl files and docker-compose (ddl: SQL table instantiation, table filling, index instantiation; docker-compose: meta stuff we won't mess with)
+* Required Documents directory contains documentation, as does README, DEVNOTES, and pom.xml
+* Target contains compiler stuff -- leave this alone
+* Src contains our actual code:
+    * main -> java -> contains Java (backend) stuff
+    * main -> resources -> contains website (frontend) stuff
+
+* main->java->edu->uga->cs4370-> contains java files: WebController, App, Books, Ratings, Users, Librarians, Signings, Readings, Fines, Copies, Reservations, and Requests (all .java files)
+
+* main->resources-> contains application.properties (meta stuff we don't mess with)
+* main->resources->static-> contains folders for css, js, and images; css contains style.css, js contains script.js, and images are just for the website.
+* main->resources->templates-> contains our .html / .mustache files. The HTML files are JUST TO LOOK AT the website if you're like me and can't use Docker.
+                                                                        * The files that are USED are the .mustache files, which have the same code as the
+                                                                        * .html files.

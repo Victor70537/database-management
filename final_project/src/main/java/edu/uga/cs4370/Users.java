@@ -5,15 +5,15 @@ package edu.uga.cs4370;
 // import javax.persistence.Id;
 
 // @Entity
-// @Table(name = "User")
-public class User {
+// @Table(name = "Users")
+public class Users {
 
     // @Id
     private int User_ID;
     private String Location;
     private String Age;
 
-    public User (int User_ID, String Location, String Age) {
+    public Users (int User_ID, String Location, String Age) {
         this.User_ID = User_ID;
         this.Location = Location;
         this.Age = Age;
