@@ -32,6 +32,10 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.*;
 
+
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+
 @Controller
 @RequestMapping("dynamic")
 public class WebController {
@@ -63,6 +67,8 @@ public class WebController {
     String jbcURL = "jdbc:mysql://localhost:3306/book_database";
     String username = "root";
     String password = "mysqlpass";
+
+    JdbcTemplate jdbcTemplate;
 
     public WebController() {
 
