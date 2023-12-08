@@ -1,0 +1,5 @@
+As outlined in prelim.pdf, a vast majority of our data for LibAlpha comes from “Books Dataset”, a Kaggle dataset hosted at the following:
+
+https://www.google.com/url?q=https://www.kaggle.com/datasets/saurabhbagchi/books-dataset/&sa=D&source=docs&ust=1702016128969515&usg=AOvVaw04QTZ_AiHNS2NG8vxN4Nvz
+
+As Kaggle is a well-known, reputable source for data, there was minimal ELT or cleaning to be done. "Books Data" provided three dense entities, Books, Ratings, and Users, which helped to form the basis of our ER Model. They came in well-defined fields and came in a primary-key-oriented package, making integration with LibAlpha smooth.
