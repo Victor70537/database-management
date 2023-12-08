@@ -84,11 +84,11 @@ public class WebController {
                     Book_Title = rs.getString("Books_Title"); // Assuming "Book_Title" is a column in the "Books" table
                     // Retrieve other columns as needed
                     Book_Author = rs.getString("Book_Author"); 
-                    Year_Of_Publication = rs.getInt('Year_Of_Publication');
-                    Publisher = rs.getString('Publisher');
-                    Image_URL_S = rs.getString('Image_URL_S');
-                    Image_URL_M = rs.getString('Image_URL_M');
-                    Image_URL_L = rs.getString('Image_URL_L');
+                    Year_Of_Publication = rs.getInt("Year_Of_Publication");
+                    Publisher = rs.getString("Publisher");
+                    Image_URL_S = rs.getString("Image_URL_S");
+                    Image_URL_M = rs.getString("Image_URL_M");
+                    Image_URL_L = rs.getString("Image_URL_L");
 
                     Books book = new Books(ISBN, Book_Title, Book_Author, Year_Of_Publication, Publisher, 
                                             Image_URL_S, Image_URL_M, Image_URL_L);
