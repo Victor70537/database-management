@@ -12,6 +12,10 @@ CREATE TABLE IF NOT EXISTS `book_5000` (
     `Image_URL_M` VARCHAR(60) CHARACTER SET utf8,
     `Image_URL_L` VARCHAR(60) CHARACTER SET utf8
 );
+
+-- Add an index on the ISBN column
+CREATE INDEX idx_isbn ON book_5000(ISBN);
+
 INSERT INTO `book_5000` VALUES ('0195153448','Classical Mythology','Mark P. O. Morford',2002,'Oxford University Press','http://images.amazon.com/images/P/0195153448.01.THUMBZZZ.jpg','http://images.amazon.com/images/P/0195153448.01.MZZZZZZZ.jpg','http://images.amazon.com/images/P/0195153448.01.LZZZZZZZ.jpg'),
 	('0002005018','Clara Callan','Richard Bruce Wright',2001,'HarperFlamingo Canada','http://images.amazon.com/images/P/0002005018.01.THUMBZZZ.jpg','http://images.amazon.com/images/P/0002005018.01.MZZZZZZZ.jpg','http://images.amazon.com/images/P/0002005018.01.LZZZZZZZ.jpg'),
 	('0060973129','Decision in Normandy','Carlo D''Este',1991,'HarperPerennial','http://images.amazon.com/images/P/0060973129.01.THUMBZZZ.jpg','http://images.amazon.com/images/P/0060973129.01.MZZZZZZZ.jpg','http://images.amazon.com/images/P/0060973129.01.LZZZZZZZ.jpg'),
@@ -5018,6 +5022,9 @@ CREATE TABLE IF NOT EXISTS `user_5000` (
     `Location` VARCHAR(31) CHARACTER SET utf8,
     `Age` VARCHAR(4) CHARACTER SET utf8
 );
+
+CREATE INDEX idx_userid ON Users(User_ID);
+
 INSERT INTO `user_5000` VALUES (1,'nyc','NULL'),
 	(2,'stockton','18'),
 	(3,'moscow','NULL'),

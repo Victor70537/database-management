@@ -1,0 +1,16 @@
+1. Index on ISBN in Books Table:
+
+To up search performance based on the ISBN in the Books table, we created an index on the ISBN column. This index speeds up query execution when users search for books by ISBN, as it avoids a full table scan.
+
+SQL Statement:
+
+CREATE INDEX idx_isbn ON Books(ISBN);
+
+2. Index on UserID in Users Table:
+
+Similarly, to optimize the performance of queries involving *user* information, especially when handling user login and fetching user-specific data, we created an index on the UserID column in the Users table.
+
+SQL Statement:
+
+CREATE INDEX idx_userid ON Users(UserID);
+These indexes are crucial for ensuring quick response times in our application, especially as the volume of data grows.

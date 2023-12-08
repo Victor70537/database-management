@@ -25,25 +25,27 @@
                 <p> You can expect a response in your email inbox within 7-10 business days.</p>
             </div>
 
-        <!-- Request Form -->
-        <div class="account-forms" style="padding: 20px;">
-            <div class="login-form">
-                <h2>Request a Book</h2>
-                <form id="reservationForm">
-                    <input type="text" placeholder="Title or ISBN" name="reservationTitle" required>
-                    <input type="text" placeholder="Your Name" name="password" required>
-                    <p>
-                        <input type="checkbox" id="reserveCheckbox" name="reserveBook" value="yes">
-                        <label for="reserveCheckbox">I'd like to reserve this book if approved</label>
-                    </p>
-
-                    <button type="submit">Submit Request</button>
-                    
-                </form>
+            <!-- Request Form -->
+            <div class="account-forms" style="padding: 20px;">
+                <div class="login-form">
+                    <h2>Request a Book</h2>
+                    <form id="reservationForm">
+                        <input type="text" placeholder="Title or ISBN" name="reservationTitle" required>
+                        <input type="text" placeholder="Your Name" name="password" required>
+                        <p>
+                            <input type="checkbox" id="reserveCheckbox" name="reserveBook" value="yes">
+                            <label for="reserveCheckbox">I'd like to reserve this book if approved</label>
+                        </p>
+                        <button type="submit">Submit Request</button>
+                    </form>
+                </div>
+                
+                <div>
+                    {{message}}
+                </div>
+            
             </div>
-
         </div>
-    </div>
 
     <!-- Footer Section -->
 <footer>

@@ -32,7 +32,18 @@
     </div>
 
     <div id="searchResults">
-        <!-- Search results will be displayed here -->
+        {{#books}}
+        <div>
+            <img src="../static/images/{{imageFileName}}" alt="{{title}}">
+            <h3>{{title}}</h3>
+            <p>Author: {{author}}</p>
+            <p>ISBN: {{isbn}}</p>
+            <!-- Add more book details as needed -->
+        </div>
+        {{/books}}
+        {{^books}}
+        <p>{{message}}</p>
+        {{/books}}
     </div>
 
     <script src="script.js"></script>

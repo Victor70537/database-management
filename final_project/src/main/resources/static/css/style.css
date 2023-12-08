@@ -101,3 +101,9 @@ footer p {
     margin: 5px 0;
     font-size: 14px;
 }
+
+.response-message {
+    margin-top: 10px;
+    color: red; /* or any appropriate color */
+    font-size: 14px;
+}

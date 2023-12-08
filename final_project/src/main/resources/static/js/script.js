@@ -1,24 +1,55 @@
 document.getElementById('searchForm').onsubmit = function(e) {
     e.preventDefault();
-    var searchText = document.getElementsByName('search')[0].value;
-    // Implement the SQL search logic here
-    console.log("Searching for: " + searchText);
-
-    // Display search results (This part will be dynamic with SQL integration)
-    document.getElementById('searchResults').innerHTML = 'Results for "' + searchText + '"';
+    var searchQuery = document.getElementsByName('search')[0].value;
+    window.location.href = '/search?query=' + encodeURIComponent(searchQuery);
 };
 
-document.getElementById('loginForm').onsubmit = function(e) {
+document.getElementById('reservationForm').onsubmit = function(e) {
     e.preventDefault();
-    var username = document.getElementsByName('username')[0].value;
-    // Implement the login logic here
-    console.log("Logging in user: " + username);
-    document.getElementById('userGreeting').innerText = 'Welcome, ' + username;
+    var formData = new FormData(document.getElementById('reservationForm'));
+    fetch('/submit-request', {
+        method: 'POST',
+        body: formData
+    }).then(function(response) {
+        return response.text();
+    }).then(function(text) {
+        document.getElementById('requestResponse').innerHTML = text;
+    });
 };
 
 document.getElementById('signupForm').onsubmit = function(e) {
     e.preventDefault();
-    var newUsername = document.getElementsByName('newUsername')[0].value;
-    // Implement the sign-up logic here
-    console.log("Signing up user: " + newUsername);
+    var formData = new FormData(document.getElementById('signupForm'));
+    fetch('/signup', {
+        method: 'POST',
+        body: formData
+    }).then(function(response) {
+        return response.text();
+    }).then(function(text) {
+        document.getElementById('signupResponse').innerHTML = text; // Update this with your response area
+    });
+};
+
+document.getElementById('loginForm').onsubmit = function(e) {
+    e.preventDefault();
+
+    // Create a FormData object from the form
+    var formData = new FormData(document.getElementById('loginForm'));
+
+    // Send a POST request to the /login endpoint
+    fetch('/login', {
+        method: 'POST',
+        body: formData
+    }).then(function(response) {
+        // If the login is successful, redirect to the homepage or another page
+        if (response.ok) {
+            window.location.href = '/';
+        } else {
+            // If the login fails, display an error message
+            return response.text();
+        }
+    }).then(function(text) {
+        // Display any returned error message
+        document.getElementById('loginResponse').innerHTML = text; // Ensure you have a div with this ID for displaying the message
+    });
 };

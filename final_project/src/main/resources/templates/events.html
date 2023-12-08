@@ -22,22 +22,18 @@
         </div>
         <div class="events">
             <h2>Upcoming Events</h2>
-            
-            <!-- Placeholder event cards -->
-            <div class="event-card">
-                    <h3>Event Title 1</h3>
-                    <p>Date: January 15, 2024</p>
-                    <p>Time: 2:00 PM - 4:00 PM</p>
-                    <p>Location: Library Meeting Room</p>
-                    <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div>
+                <h3>Signings</h3>
+                {{#signings}}
+                <p>Signing Event: {{title}} by {{bookAuthor}} on {{date}} at {{time}}</p>
+                {{/signings}}
             </div>
-                
-            <div class="event-card">
-                    <h3>Event Title 2</h3>
-                    <p>Date: February 20, 2024</p>
-                    <p>Time: 3:00 PM - 5:00 PM</p>
-                    <p>Location: Community Center</p>
-                    <p>Description: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            
+            <div>
+                <h3>Readings</h3>
+                {{#readings}}
+                <p>Reading Event: {{title}} by Librarian {{librarianId}} on {{date}} at {{time}}</p>
+                {{/readings}}
             </div>
         </div>
     </div>

@@ -21,7 +21,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+import java.time.LocalDate;
 import java.util.*;
 
 @Controller
@@ -109,11 +109,89 @@ public class WebController {
         return mv;
     }
 
+    @GetMapping("/search")
+    public String searchBooks(@RequestParam(name = "query", required = false) String query, Model model) {
+        String sql = "SELECT * FROM Books WHERE LOWER(Book-Title) LIKE LOWER(?) OR LOWER(ISBN) LIKE LOWER(?)";
+        List<Books> books = jdbcTemplate.query(sql, new Object[]{"%" + query + "%", "%" + query + "%"}, new BeanPropertyRowMapper<>(Books.class));
+
+        if (books.isEmpty()) {
+            model.addAttribute("message", "No results found");
+        } else {
+            model.addAttribute("books", books);
+        }
+
+        return "browse";
+    }
+
+@GetMapping("/events")
+    public String showEvents(Model model) {
+        String sqlSignings = "SELECT s.*, b.Book-Author FROM Signings s JOIN Books b ON s.ISBN = b.ISBN";
+        List<Signing> signings = jdbcTemplate.query(sqlSignings, new BeanPropertyRowMapper<>(Signing.class));
+
+        String sqlReadings = "SELECT * FROM Readings";
+        List<Reading> readings = jdbcTemplate.query(sqlReadings, new BeanPropertyRowMapper<>(Reading.class));
+
+        model.addAttribute("signings", signings);
+        model.addAttribute("readings", readings);
+
+        return "events";
+    }
+
+@PostMapping("/submit-request")
+    public String submitBookRequest(@RequestParam String reservationTitle, @RequestParam String password, @RequestParam(required = false) boolean reserveBook, Model model) {
+        // Check if the book has already been requested
+        String checkSql = "SELECT COUNT(*) FROM Requests WHERE BookTitle = ?";
+        int count = jdbcTemplate.queryForObject(checkSql, new Object[]{reservationTitle}, Integer.class);
+
+        if (count > 0) {
+            model.addAttribute("message", "Sorry, this book has already been requested.");
+            return "requests";
+        }
+
+        // Insert into Requests table
+        String insertSql = "INSERT INTO Requests (BookTitle, UserID, RequestDate, Status) VALUES (?, ?, ?, ?)";
+        jdbcTemplate.update(insertSql, reservationTitle, password, LocalDate.now(), "Pending");
+
+        // If reserve checkbox is checked, create a new Reservation
+        if (reserveBook) {
+            String reserveSql = "INSERT INTO Reservations (UserID, CopyID, ReservationDate, ExpirationDate) VALUES (?, ?, ?, ?)";
+            // Assuming CopyID is known or selected in some way, replace 'copyId' with actual value
+            int copyId = 1; // Placeholder value
+            jdbcTemplate.update(reserveSql, password, copyId, LocalDate.now(), LocalDate.now().plusDays(7)); // Example expiration date
+        }
+
+        model.addAttribute("message", "Your request has been submitted.");
+        return "requests";
+    }
+
+    @PostMapping("/signup")
+    public String signup(@RequestParam String newUsername, @RequestParam String email, @RequestParam String newPassword, Model model) {
+        String hashedPassword = new BCryptPasswordEncoder().encode(newPassword);
+        // Insert the new user into the database
+        String insertSql = "INSERT INTO Users (Username, Email, Password) VALUES (?, ?, ?)";
+        jdbcTemplate.update(insertSql, newUsername, email, hashedPassword);
+    
+        model.addAttribute("message", "Signup successful. Please log in.");
+        return "account";
+    }
+    
+    @PostMapping("/login")
+public String login(@RequestParam String username, @RequestParam String password, HttpServletRequest request, Model model) {
+    String sql = "SELECT Password FROM Users WHERE Username = ?";
+    String storedHash = jdbcTemplate.queryForObject(sql, new Object[]{username}, String.class);
+
+    if (storedHash != null && new BCryptPasswordEncoder().matches(password, storedHash)) {
+        request.getSession().setAttribute("loggedInUser", username); // Set user in session
+        return "redirect:/"; // Redirect to home or another page
+    } else {
+        model.addAttribute("message", "Invalid username or password.");
+        return "account";
+    }
+}
 
 
 
-
-
+    
 
 
 

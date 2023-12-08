@@ -21,33 +21,32 @@
                 <a href="events.html">Events</a>
             </div>
 
-        <!-- User Greeting -->
-        <div id="userGreeting" class="user-greeting">
-            <!-- Username will be dynamically inserted here -->
-        </div>
-
         <!-- Login and Signup Forms -->
         <div class="account-forms" style="padding: 20px;">
-            <div class="login-form">
-                <h2>Login</h2>
-                <form id="loginForm">
-                    <input type="text" placeholder="Username" name="username" required>
-                    <input type="password" placeholder="Password" name="password" required>
-                    <button type="submit">Login</button>
-                </form>
-            </div>
+            <!-- Login Form -->
+    <div class="login-form">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="text" placeholder="Username" name="username" required>
+            <input type="password" placeholder="Password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+        <div id="loginResponse" class="response-message"></div>
+    </div>
 
-            <div class="signup-form">
-                <h2>Sign Up</h2>
-                <form id="signupForm">
-                    <input type="text" placeholder="Username" name="newUsername" required>
-                    <input type="email" placeholder="Email" name="email" required>
-                    <input type="password" placeholder="Password" name="newPassword" required>
-                    <button type="submit">Sign Up</button>
-                </form>
+    <!-- Signup Form -->
+    <div class="signup-form">
+        <h2>Sign Up</h2>
+        <form id="signupForm">
+            <input type="text" placeholder="Username" name="newUsername" required>
+            <input type="email" placeholder="Email" name="email" required>
+            <input type="password" placeholder="Password" name="newPassword" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <div id="signupResponse" class="response-message"></div>
+    </div>
             </div>
         </div>
-    </div>
 
     <!-- Footer Section -->
 <footer>
