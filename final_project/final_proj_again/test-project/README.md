@@ -8,9 +8,9 @@ Victor Qiu: DDL Design, WebController work, Database Setup
 Technologies: Java, Maven, SpringBoot, Mustache, JavaScript, HTML, CSS
 
 Database Information:
-Name:
-Username:
-Password:
+Name: - 
+Username: root
+Password: mysqlpass
 
 Test Username/Password Pairs:
 (A) TestAccount1/111
