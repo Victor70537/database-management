@@ -59,3 +59,4 @@ CREATE TABLE IF NOT EXISTS 'Reservations' (
     FOREIGN KEY 'UserID' REFERENCES 'user_5000',
     FOREIGN KEY 'CopyID' REFERENCES 'Copies'
 
+)
