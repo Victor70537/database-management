@@ -1,3 +1,12 @@
+edu/uga/cs4370/Signings.class
+edu/uga/cs4370/Copies.class
+edu/uga/cs4370/UserAuth.class
+edu/uga/cs4370/WebController.class
+edu/uga/cs4370/App.class
+edu/uga/cs4370/Requests.class
+edu/uga/cs4370/Reservations.class
+edu/uga/cs4370/Ratings.class
+edu/uga/cs4370/Fines.class
 edu/uga/cs4370/Books.class
 edu/uga/cs4370/Librarians.class
 edu/uga/cs4370/Readings.class

@@ -44,7 +44,7 @@ public class WebController {
     String ISBN;
     String Book_Title;
     String Book_Author;
-    int Year_Of_Publication;
+    String Year_Of_Publication;
     String Publisher;
     String Image_URL_L;
     String Image_URL_S;
@@ -90,7 +90,7 @@ public class WebController {
                     Book_Title = rs.getString("Books_Title"); // Assuming "Book_Title" is a column in the "Books" table
                     // Retrieve other columns as needed
                     Book_Author = rs.getString("Book_Author"); 
-                    Year_Of_Publication = rs.getInt("Year_Of_Publication");
+                    Year_Of_Publication = rs.getString("Year_Of_Publication");
                     Publisher = rs.getString("Publisher");
                     Image_URL_S = rs.getString("Image_URL_S");
                     Image_URL_M = rs.getString("Image_URL_M");
@@ -146,10 +146,10 @@ public class WebController {
 @GetMapping("/events")
     public String showEvents(Model model) {
         String sqlSignings = "SELECT s.*, b.Book-Author FROM Signings s JOIN Books b ON s.ISBN = b.ISBN";
-        List<Signing> signings = jdbcTemplate.query(sqlSignings, new BeanPropertyRowMapper<>(Signing.class));
+        List<Signings> signings = jdbcTemplate.query(sqlSignings, new BeanPropertyRowMapper<>(Signings.class));
 
         String sqlReadings = "SELECT * FROM Readings";
-        List<Reading> readings = jdbcTemplate.query(sqlReadings, new BeanPropertyRowMapper<>(Reading.class));
+        List<Readings> readings = jdbcTemplate.query(sqlReadings, new BeanPropertyRowMapper<>(Readings.class));
 
         model.addAttribute("signings", signings);
         model.addAttribute("readings", readings);
