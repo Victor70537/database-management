@@ -1,33 +1,52 @@
 package edu.uga.cs4370;
 
-// import javax.persistence.Entity;
-// import javax.persistence.Table;
-// import javax.persistence.Id;
-
-// @Entity
-// @Table(name = "Users")
 public class Users {
+    private int userID;
+    private String location;
+    private String age;
 
-    // @Id
-    private int User_ID;
-    private String Location;
-    private String Age;
-
-    public Users (int User_ID, String Location, String Age) {
-        this.User_ID = User_ID;
-        this.Location = Location;
-        this.Age = Age;
+    // Constructors
+    public Users() {
     }
 
-    public int getID() {
-        return this.User_ID;
+    public Users(int userID, String location, String age) {
+        this.userID = userID;
+        this.location = location;
+        this.age = age;
+    }
+
+    // Getters and setters
+    public int getUserID() {
+        return userID;
+    }
+
+    public void setUserID(int userID) {
+        this.userID = userID;
     }
 
     public String getLocation() {
-        return this.Location;
+        return location;
     }
 
-    public String Age() {
-        return this.Age;
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    // toString method for debugging
+    @Override
+    public String toString() {
+        return "Users{" +
+               "userID=" + userID +
+               ", location='" + location + '\'' +
+               ", age='" + age + '\'' +
+               '}';
     }
 }

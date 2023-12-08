@@ -164,33 +164,37 @@ public class WebController {
         return "requests";
     }
 
-    @PostMapping("/signup")
-    public String signup(@RequestParam String newUsername, @RequestParam String email, @RequestParam String newPassword, Model model) {
-        String hashedPassword = new BCryptPasswordEncoder().encode(newPassword);
-        // Insert the new user into the database
-        String insertSql = "INSERT INTO Users (Username, Email, Password) VALUES (?, ?, ?)";
-        jdbcTemplate.update(insertSql, newUsername, email, hashedPassword);
-    
-        model.addAttribute("message", "Signup successful. Please log in.");
-        return "account";
-    }
-    
-    @PostMapping("/login")
-public String login(@RequestParam String username, @RequestParam String password, HttpServletRequest request, Model model) {
-    String sql = "SELECT Password FROM Users WHERE Username = ?";
-    String storedHash = jdbcTemplate.queryForObject(sql, new Object[]{username}, String.class);
 
-    if (storedHash != null && new BCryptPasswordEncoder().matches(password, storedHash)) {
-        request.getSession().setAttribute("loggedInUser", username); // Set user in session
-        return "redirect:/"; // Redirect to home or another page
-    } else {
-        model.addAttribute("message", "Invalid username or password.");
-        return "account";
-    }
+  @PostMapping("/signup")
+public String signup(@RequestParam String newUsername, @RequestParam String newPassword, Model model) {
+    String hashedPassword = new BCryptPasswordEncoder().encode(newPassword);
+
+    // Manually assigning a User_ID for demonstration purposes
+    int userID = 10000000; // Replace with an actual User_ID from your Users table
+
+    String insertSql = "INSERT INTO UserAuth (User_ID, Username, Password) VALUES (?, ?, ?)";
+    jdbcTemplate.update(insertSql, userID, newUsername, hashedPassword);
+
+    model.addAttribute("message", "Signup successful. Please log in.");
+    return "account";
 }
 
+    
 
-
+    @PostMapping("/login")
+    public String login(@RequestParam String username, @RequestParam String password, HttpServletRequest request, Model model) {
+        String sql = "SELECT Password FROM UserAuth WHERE Username = ?";
+        String storedHash = jdbcTemplate.queryForObject(sql, new Object[]{username}, String.class);
+    
+        if (storedHash != null && new BCryptPasswordEncoder().matches(password, storedHash)) {
+            request.getSession().setAttribute("loggedInUser", username);
+            return "redirect:/";
+        } else {
+            model.addAttribute("message", "Invalid username or password.");
+            return "account";
+        }
+    }
+    
     
 
 

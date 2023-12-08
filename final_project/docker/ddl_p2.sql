@@ -92,3 +92,4 @@ INSERT INTO Copies (CopyID, ISBN, Status, UserID) VALUES
 (3, '978-1-23-456789-7', 'Reserved', 102),
 (4, '978-1-23-456789-7', 'Available', NULL),
 (5, '978-0-59-313913-1', 'Available', NULL);
+

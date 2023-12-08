@@ -5024,9 +5024,20 @@ CREATE TABLE IF NOT EXISTS `Users` (
 );
 
 CREATE INDEX idx_userid ON Users(User_ID);
-INSERT INTO Users (Username, Password) VALUES ('TestAccount1', 'hashed_password_for_111');
-INSERT INTO Users (Username, Password) VALUES ('TestAccount2', 'hashed_password_for_222');
-INSERT INTO Users (Username, Password) VALUES ('TestAccount3', 'hashed_password_for_333');
+
+CREATE TABLE IF NOT EXISTS UserAuth (
+    AuthID INT AUTO_INCREMENT PRIMARY KEY,
+    User_ID INT,
+    Username VARCHAR(255),
+    Password VARCHAR(255),
+    FOREIGN KEY (User_ID) REFERENCES Users(User_ID)
+);
+
+CREATE INDEX idx_auth_userid ON UserAuth(User_ID);
+
+INSERT INTO UserAuth (User_ID, Username, Password) VALUES (1, 'TestAccount1', 'hashed_password_for_111');
+INSERT INTO UserAuth (User_ID, Username, Password) VALUES (2, 'TestAccount2', 'hashed_password_for_222');
+INSERT INTO UserAuth (User_ID, Username, Password) VALUES (3, 'TestAccount3', 'hashed_password_for_333');
 
 
 INSERT INTO `user_5000` VALUES (1,'nyc','NULL'),

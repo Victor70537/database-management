@@ -1,26 +1,52 @@
 package edu.uga.cs4370;
 
 public class Ratings {
-    
-    private int User_ID;
-    private String ISBN;
-    private int rating;
+    private int userID; // Part of composite primary key
+    private String isbn; // Part of composite primary key
+    private int bookRating;
 
-    public Ratings (int User_ID, String ISBN, int rating) {
-        this.User_ID = User_ID;
-        this.ISBN = ISBN;
-        this.rating = rating;
+    // Constructors
+    public Ratings() {
     }
 
-    // public String getMovieTitle () {
-    //     return this.movieTitle;
-    // }
+    public Ratings(int userID, String isbn, int bookRating) {
+        this.userID = userID;
+        this.isbn = isbn;
+        this.bookRating = bookRating;
+    }
 
-    // public String users () {
-    //     return this.users;
-    // }
+    // Getters and setters
+    public int getUserID() {
+        return userID;
+    }
 
-    // public int getRating () {
-    //     return this.rating;
-    // }
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public int getBookRating() {
+        return bookRating;
+    }
+
+    public void setBookRating(int bookRating) {
+        this.bookRating = bookRating;
+    }
+
+    // toString method
+    @Override
+    public String toString() {
+        return "Ratings{" +
+               "userID=" + userID +
+               ", isbn='" + isbn + '\'' +
+               ", bookRating=" + bookRating +
+               '}';
+    }
 }
