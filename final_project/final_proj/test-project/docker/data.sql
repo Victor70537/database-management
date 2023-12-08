@@ -1,2 +1,0 @@
-USE book_database;
-

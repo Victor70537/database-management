@@ -10,3 +10,4 @@ services:
       - "3306:3306"
     volumes:
       - ./ddl.sql:/docker-entrypoint-initdb.d/ddl.sql
+      - ./ddl.sql:/docker-entrypoint-initdb.d/ddl_p2.sql
