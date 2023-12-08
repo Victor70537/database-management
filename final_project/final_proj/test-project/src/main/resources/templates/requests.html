@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Account - LibAlpha</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9">
+
+</head>
+<body>
+        <div class="content">
+            <div class="header">
+                <h1>Welcome to LibAlpha</h1>
+                <p>Your one-stop library for books and more!</p>
+            </div>
+        
+            <div class="nav-bar">
+                <a href="home.html">Home</a>
+                <a href="browse.html">Search & Browse Books</a>
+                <a href="account.html">User Account</a>
+                <a href="requests.html">Book Requests</a>
+                <a href="events.html">Events</a>
+            </div>
+            <div style="padding: 20px;">
+                <p>Searching for a book we don't have in <b>LibAlpha</b>? No worries! Submit a Book Request below, and one of our Librarians will review your request!</p>
+                <p> You can expect a response in your email inbox within 7-10 business days.</p>
+            </div>
+
+        <!-- Request Form -->
+        <div class="account-forms" style="padding: 20px;">
+            <div class="login-form">
+                <h2>Request a Book</h2>
+                <form id="reservationForm">
+                    <input type="text" placeholder="Title or ISBN" name="reservationTitle" required>
+                    <input type="text" placeholder="Your Name" name="password" required>
+                    <p>
+                        <input type="checkbox" id="reserveCheckbox" name="reserveBook" value="yes">
+                        <label for="reserveCheckbox">I'd like to reserve this book if approved</label>
+                    </p>
+
+                    <button type="submit">Submit Request</button>
+                    
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+<footer>
+    <p>Project by Alex Fritz, Althea Pamintawan, Sanjay DK, Victor Qiu</p>
+    <p>Database Management, Fall 2023 - University of Georgia ©</p>
+</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
